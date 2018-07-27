@@ -1,0 +1,12 @@
+﻿AISIW(Auto Image Search Inactive Window) là phần mềm tạo lập kịch bản để tự động hóa các công việc.
+
+Phát triển dựa trên mục tiêu tự động hóa hoàn toàn không chiếm
+quyền sử dụng máy tính(không chiếm màn hình, chuột, bàn phím)
+giúp người sử dụng có thể bớt những thao tác lặp đi lặp lại
+nhiều lần và có thời gian rảnh rỗi giải trí hoặc làm các công việc
+khác.
+Hy vọng phần mềm hữu ích với các bạn. 
+
+Mọi ý kiến đóng góp, báo lỗi xin gửi về email phucnv31@gmail.com
+hoặc facebook : https://www.facebook.com/AISIW/?fref=ts
+Tác giả: Nguyễn Văn Phúc
