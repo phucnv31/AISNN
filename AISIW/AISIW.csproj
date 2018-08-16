@@ -103,15 +103,6 @@
     <Reference Include="AutoItX3.PowerShell">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\AutoIt3\AutoItX\AutoItX3.PowerShell.dll</HintPath>
     </Reference>
-    <Reference Include="DotImaging.BitmapInterop, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotImaging.BitmapInterop.2.5.3\lib\net45\DotImaging.BitmapInterop.dll</HintPath>
-    </Reference>
-    <Reference Include="DotImaging.GenericImage, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotImaging.GenericImage.2.5.3\lib\net45\DotImaging.GenericImage.dll</HintPath>
-    </Reference>
-    <Reference Include="DotImaging.Primitives2D, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotImaging.Primitives2D.2.5.3\lib\net45\DotImaging.Primitives2D.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
