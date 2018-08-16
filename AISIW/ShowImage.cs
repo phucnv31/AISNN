@@ -16,6 +16,11 @@ namespace AISIW
     public partial class ShowImage : Form
     {
         Bitmap bm = null;
+        Point FirstPoint = new Point();
+        Point FinalPoint = new Point();
+        Point LeftTop = new Point();
+        Point RightBottom = new Point();
+        bool isPaint = false;
         public ShowImage(Bitmap bmf)
         {
             InitializeComponent();
@@ -98,13 +103,64 @@ namespace AISIW
         }
         public void LoadImage()
         {
-            string fileNameBM = @"Image\BM.bmp";
-            Bitmap bm = new Bitmap(Image.FromFile(fileNameBM));
-            this.Width = bm.Width;
-            this.Height = bm.Height;
-            pictureBox1.Width = bm.Width;
-            pictureBox1.Height = bm.Height;
-            pictureBox1.Image = bm;
+            //string fileNameBM = @"Image\BM.bmp";
+            //Bitmap bm = new Bitmap(Image.FromFile(fileNameBM));
+            Width = bm.Width;
+            Height = bm.Height;
+            BackgroundImage = bm;
+            pictureBox.Width = bm.Width;
+            pictureBox.Height = bm.Height;
+        }
+        public void DrawRectangle(Point leftTop, Point rightBottom)
+        {
+            if (isPaint)
+            {
+                var width = Math.Abs(rightBottom.X - leftTop.X);
+                var height = Math.Abs(rightBottom.Y - leftTop.Y);
+                //Pen p = new Pen(Color.Red, 2);
+                //Graphics paper = this.CreateGraphics();
+                //paper.DrawRectangle(p, leftTop.X, leftTop.Y, width, height);
+                //p.Dispose();
+                //paper.Dispose();
+                Bitmap bitmap = new Bitmap(this.bm);
+                // Draw the rectangle.
+                using (Graphics gr = Graphics.FromImage(bitmap))
+                {
+                    gr.DrawRectangle(Pens.Red, leftTop.X, leftTop.Y, width, height);
+                }
+                pictureBox.Image = bitmap;
+            }
+        }
+        public void Draw()
+        {
+            LeftTop.X = FirstPoint.X <= FinalPoint.X ? FirstPoint.X : FinalPoint.X;
+            LeftTop.Y = FirstPoint.Y <= FinalPoint.Y ? FirstPoint.Y : FinalPoint.Y;
+            RightBottom.X = FirstPoint.X >= FinalPoint.X ? FirstPoint.X : FinalPoint.X;
+            RightBottom.Y = FirstPoint.Y >= FinalPoint.Y ? FirstPoint.Y : FinalPoint.Y;
+            DrawRectangle(LeftTop, RightBottom);
+        }
+
+        private void pictureBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            FirstPoint = e.Location;
+            isPaint = true;
+        }
+
+        private void pictureBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            FinalPoint = e.Location;
+            Draw();
+            this.Validate();
+            isPaint = false;
+        }
+
+        private void pictureBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isPaint)
+            {
+                FinalPoint = e.Location;
+                Draw();
+            }
         }
     }
 }
